@@ -1,25 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import Overview from './pages/Overview';
+import CreateAsset from './pages/CreateAsset';
+import CreateRecord from './pages/CreateRecord';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <div className="container">
+                <h2>MERN-Stack Maint Tracker</h2>
+                <Route path="/" exact component={Overview}/>
+                <Route path="/create_asset" component={CreateAsset}/>
+                <Route path="/create_record" component={CreateRecord}/>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
